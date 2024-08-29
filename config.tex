@@ -1,0 +1,117 @@
+%% Preambulo:
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{hyphenat}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{multirow}
+\usepackage{listings} 
+\usepackage{colortbl}
+\usepackage{xfrac}
+% \usepackage[FIGTOPCAP]{subfigure}
+\usepackage[printonlyused, withpage]{acronym}
+
+%% BEGIN - modificacoes de Andre Madureira
+
+% pseudocode / algorithms / source code
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+% source code
+\usepackage{listings}           
+\usepackage{caption}
+
+% make all the sections uppercase
+\usepackage{sectsty}
+
+% define arial font as the default font
+% \usepackage[scaled=0.92]{helvet} 
+% \renewcommand{\familydefault}{\sfdefault}
+% \sectionfont{\sfdefault}
+% \subsectionfont{\sfdefault}
+% \subsubsectionfont{\sfdefault}
+% \paragraphfont{\sfdefault}
+
+% \usepackage{datatool} % allow sorting algorithms
+
+\usepackage{caption, subcaption, float, url} % text and images
+\usepackage{tabularx} % tables
+\usepackage{amsmath, amsfonts, amssymb, bbm} % allow math expressions
+\usepackage[brazil]{babel} % define charset to support brazilian portuguese (dictionary as well)
+\usepackage[T1]{fontenc}
+\usepackage{enumitem, csquotes, microtype}
+\renewcommand{\mkcitation}[1]{ #1} %format csquotes citation
+
+% allow custom indentation
+\setlist[description]{leftmargin=0cm,labelindent=0.7cm}
+
+% indentation of the paragraph
+\usepackage{indentfirst}    % first line indent
+\setlength{\parindent}{1.25cm} % set indentation space
+% \setlength{\parskip}{1em} % space between paragraphs
+
+% set source code formatting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\lstset{
+  backgroundcolor=\color{backcolour},  % background of the code
+  commentstyle=\color{codegreen},      % comments style
+  numberstyle=\small\color{codegray}\textbf,  % line number style / color
+%   basicstyle=\defaultfontsize,
+  %numberstyle=\small,       defaultfontsize      % adjust the size of numbers
+  numbers=left,                     % show numbers to the left
+  captionpos=b,                     % sets the caption-position to bottom
+  numbersep=7pt,                 % how far the line-numbers are from the code  
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line will be numbered
+  tabsize=4,	                        % sets default tabsize to 2 spaces
+  xleftmargin=0.6cm,            % adjust left margin
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},  
+  extendedchars=true,
+  literate={á}{{\'a}}1 {â}{{\^a}}1 {ã}{{\~a}}1 {Á}{{\'A}}1 {Â}{{\^A}}1 {Ã}{{\~A}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {ẽ}{{\~e}}1 {É}{{\'E}}1 {Ê}{{\^E}}1 {Ẽ}{{\~E}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {ó}{{\'o}}1 {Ô}{{\^O}}1 {Õ}{{\~O}}1 {Ó}{{\'O}}1 {í}{{\'i}}1 {Í}{{\'I}}1 {ú}{{\'u}}1 {Ú}{{\'U}}1 {ç}{{\c{c}}}1,
+}
+% create diff language
+\definecolor{diffstart}{rgb}{ 0.00,  0.55, 0.83}
+\definecolor{diffincl}{rgb}{  0.00,  0.55, 0.00}
+\definecolor{diffrem}{rgb}{   1.00,  0.30, 0.00}
+\lstdefinelanguage{diff}{
+%     basicstyle=\ttfamily,
+    morecomment=[f][\color{diffstart}\textbf]{@@},
+    morecomment=[f][\color{diffincl}]{+},
+    morecomment=[f][\color{diffrem}]{-},
+    morecomment=[f][\color{diffincl}\textbf]{+++},
+    morecomment=[f][\color{diffrem}\textbf]{---}    
+  }
+%   create conf language
+\lstdefinelanguage{conf}{
+	sensitive = true,
+    keywords={config, option},	
+    stringstyle=\color{red},
+    morecomment=[f]{\#},    
+    morestring=[b]{\'},
+    morestring=[b]{\"}
+}
+% caption to code
+\renewcommand{\lstlistingname}{Script}% set caption name
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}
+% set caption format
+\DeclareCaptionFont{white}{ \color{white} }
+\DeclareCaptionFormat{listing}{
+  \colorbox[cmyk]{0.43, 0.35, 0.35,0.01 }{
+    \parbox{\textwidth}{\hspace{15pt}#1#2#3}
+  }
+}
+\captionsetup[lstlisting]{ format=listing, labelfont=white, textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize} }  
+
+% load codes from code/ path
+\lstset{inputpath=code}
+
+%load images from images/ path
+\graphicspath{ {images/} }
+
+%% END - modificacoes de Andre Madureira

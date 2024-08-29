@@ -1,0 +1,207 @@
+%% Template para dissertacao/tese na classe UFBAthesis
+%% versao 1.0
+%% (c) 2005 Paulo G. S. Fonseca
+%% (c) 2012 Antonio Terceiro
+%% (c) 2014 Christina von Flach
+%% www.dcc.ufba.br/~flach/ufbathesis
+
+%% Carrega a classe ufbathesis
+%% Opcoes: * Idiomas
+%%           pt   - portugues (padrao)
+%%           en   - ingles
+%%         * Tipo do Texto
+%%           bsc  - para monografias de graduacao
+%%           msc  - para dissertacoes de mestrado (padrao)
+%%           qual - exame de qualificacao de mestrado
+%%           prop - exame de qualificacao de doutorado
+%%           phd  - para teses de doutorado
+%%         * Media
+%%           scr  - para versao eletronica (PDF) / consulte o guia do usuario
+%%         * Estilo
+%%           classic - estilo original a la TAOCP (deprecated) - apesar de deprecated, manter esse.
+%%           std     - novo estilo a la CUP (padrao)
+%%         * Paginacao
+%%           oneside - para impressao em face unica
+%%           twoside - para impressao em frente e verso (padrao)
+
+% Atenção: Manter 'classic' na declaracao abaixo:
+\documentclass[pt, bsc, classic, a4paper]{ufbathesis}
+
+%% Preambulo:
+\input{config.tex}
+
+% Entidade/Orgão
+\entity{Ministério da Educação}
+
+% Universidade
+\university{Instituto Federal de Educação, Ciência e Tecnologia da Bahia}
+
+% Endereco (cidade)
+\address{Valença}
+
+% Instituto ou Centro Academico
+% \institute{}
+
+% Campus
+\campus{\textit{Campus} Valença}
+
+% Nome da biblioteca - usado na ficha catalografica
+\library{NOME DA BIBLIOTECA AQUI}
+
+% Programa de pos-graduacao
+\program{Curso de Tecnologia em Análise e Desenvolvimento de Sistemas}
+
+% Grau
+\degree{Tecnólogo}
+
+% Area de titulacao
+\majorfield{Análise e Desenvolvimento de Sistemas}
+
+% Titulo da dissertacao
+\title{TITULO DA MONOGRAFIA AQUI}
+
+% Data da defesa
+\date{2024}
+\defenseyear{2024}
+
+% Autor
+% e.g. \author{Jose da Silva}
+\author{NOME DO ALUNO AQUI}
+
+% Orientador(a)
+% Opcao: [f] - para orientador do sexo feminino
+% e.g. \adviser[f]{Profa. Dra. Maria Santos}
+\adviser{Prof. Dr. xxx (NOME DO ORIENTADOR AQUI)}
+
+% Orientador(a)
+% Opcao: [f] - para orientador do sexo feminino
+% e.g. \coadviser{Prof. Dr. Pedro Pedreira}
+% Comente se nao ha co-orientador
+\coadviser{Prof. Dr. xxx (NOME DO COORIENTADOR AQUI)}
+
+%% Inicio do documento
+\begin{document}
+
+%% CAPA
+\pgcompfrontpage
+
+%% Parte pre-textual
+\frontmatter
+
+%% CONTRA-CAPA
+\pgcomppresentationpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ficha catalografica
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{pretextuais/ficha_catalografica}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Termo de aprovacaoo
+%%%%%%%%%%%%%%%%%%%%%
+
+\input{pretextuais/termo_aprovacao}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dedicatoria, Agradecimentos, Epigrafe
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Dedicatoria
+\include{pretextuais/dedicatoria}
+
+% Agradecimentos
+\include{pretextuais/agradecimentos}
+
+% Epigrafe
+\include{pretextuais/epigrafe}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Resumos em Portugues e Ingles
+%%%%%%%%%%%%%%%%%%%%%
+
+\include{pretextuais/resumo_ptbr}
+\include{pretextuais/resumo_en} 
+
+%% LISTA DE SIGLAS (ACRONIMOS)
+\include{pretextuais/siglas} 
+
+%% LISTA DE FIGURAS
+% Comente para ocultar
+\listoffigures
+
+%% LISTA DE TABELAS
+% Comente para ocultar
+\listoftables
+
+%% LISTA DE SCRIPTS
+% Comente para ocultar
+\lstlistoflistings
+
+%%%%%%%%%%%%%%%%%%%
+% Sumario / Indice
+%%%%%%%%%%%%%%%%%%%
+
+%% SUMARIO
+% Comente para ocultar
+\tableofcontents
+
+%% Parte textual
+\mainmatter
+
+% Eh aconselhavel criar cada capitulo em um arquivo separado, digamos
+% "capitulo1.tex", "capitulo2.tex", ... "capituloN.tex" e depois
+% inclui-los com:
+% \include{capitulo1}
+% \include{capitulo2}
+% ...
+% \include{capituloN}
+%
+% Importante: 
+% Use \xchapter{}{} ao inves de \chapter{}; se não quiser colocar texto antes do inicio do capitulo, use \xchapter{texto}{}.
+
+% DICAS DO USO DO LATEX (comentar quando for usar o modelo)
+\include{capitulos/0_dicas_latex}
+
+% % INTRODUCAO
+\include{capitulos/1_introducao}
+
+% REFERENCIAL TEORICO
+\include{capitulos/2_ref_teorico}
+
+% % METODOLOGIA
+\include{capitulos/3_metodologia}
+
+% % RESULTADOS / DISCUSSAO
+\include{capitulos/4_resultados}
+
+% % CONCLUSAO
+\include{capitulos/5_conclusao}
+
+%% Parte pos-textual (REFERENCIAS BIBLIOGRAFICAS)
+\backmatter
+
+% Bibliografia
+% É aconselhável utilizar o BibTeX a partir de um arquivo, digamos "biblio.bib".
+% Para ajuda na criação do arquivo .bib e utilização do BibTeX, recorra ao
+% BibTeXpress em www.cin.ufpe.br/~paguso/bibtexpress
+\bibliographystyle{abntex2-alf}
+\bibliography{capitulos/biblio}
+
+%%%%%%%%%%%%
+%%    Apendices  %%
+%%%%%%%%%%%%
+
+% Comente se nao houver apendices
+% \appendix
+
+% Eh aconselhavel criar cada apendice em um arquivo separado, digamos
+% "apendice1.tex", "apendice.tex", ... "apendiceM.tex" e depois
+% inclui--los com:
+
+\include{apendices/A}
+
+
+%% Fim do documento
+\end{document}
+%------------------------------------------------------------------------------------------%
